@@ -1,0 +1,111 @@
+# Caso de Teste: Envio de dinheiro com saldo suficiente
+
+## Informações Gerais
+
+- **Tipo de Teste:** Funcional / Positivo  
+- **Prioridade:** Alta  
+- **Status:** Aprovado  
+
+**Objetivo:** Verificar se o sistema permite a realização de uma transação quando o usuário possui saldo suficiente.
+
+---
+
+## Pré-condições
+
+- Usuário cadastrado no ambiente de desenvolvimento  
+- Usuário autenticado no sistema  
+- Aplicação rodando em http://localhost:3000  
+- Saldo disponível maior que o valor da transação  
+
+---
+
+## Dados de Teste
+
+| Campo                 | Valor                      |
+|-----------------------|----------------------------|
+| Usuário Remetente     | Magdalen.Hirthe            |
+| Usuário Destinatário  | Joel.Kutch                 |
+| Valor                 | 10                         |
+| Descrição             | Teste envio com sucesso    |
+
+---
+
+## Passos
+
+1. Realizar login com usuário  `"Magdalen.Hirthe"`
+2. Clicar na opção **"New"** para iniciar uma nova transação
+3. Buscar e selecionar o usuário 'Joel.Kutch'
+4. Informar o valor `10`
+5. Informar a descrição `"Teste envio com sucesso"`
+6. Clicar no botão **"Pay"**
+
+---
+
+## Resultado Esperado
+
+- A transação deve ser realizada com sucesso  
+- O sistema deve exibir mensagem de confirmação `"Transaction Submitted!"`  
+- A transação deve aparecer no histórico do usuário  
+- O saldo deve ser atualizado corretamente  
+
+---
+
+---
+
+# Caso de Teste: Envio de dinheiro com saldo insuficiente
+
+## Informações Gerais
+
+- **Tipo de Teste:** Funcional / Negativo  
+- **Prioridade:** Alta  
+- **Status:** Reprovado  
+
+**Objetivo:** Verificar se o sistema impede a realização de uma transação quando o valor informado é maior que o saldo disponível.
+
+---
+
+## Pré-condições
+
+- Usuário cadastrado no ambiente de desenvolvimento  
+- Usuário autenticado no sistema  
+- Aplicação rodando em http://localhost:3000  
+- Saldo disponível igual a 0 ou inferior ao valor da transação  
+
+---
+
+## Dados de Teste
+
+| Campo                 | Valor                          |
+|-----------------------|--------------------------------|
+| Usuário Remetente     | Magdalen.Hirthe                |
+| Usuário Destinatário  | Joel.Kutch                     |
+| Valor                 | 1000                           |
+| Descrição             | Teste saldo insuficiente       |
+
+---
+
+## Passos
+
+1. Realizar login com usuário `Magdalen.Hirthe`
+2. Clicar na opção **"New"** para iniciar uma nova transação
+3. Buscar e selecionar o usuário `Joel.Kutch`
+4. Informar o valor `1000`
+5. Informar a descrição `"Teste saldo insuficiente"`
+6. Clicar no botão **"Pay"**
+
+---
+
+## Resultado Esperado
+
+- O sistema deve impedir a transação  
+- Deve exibir mensagem de erro informando saldo insuficiente  
+- A transação não deve ser registrada  
+- O saldo do usuário não deve ser alterado  
+
+---
+
+## Resultado Obtido
+
+- A transação foi realizada com sucesso  
+- Nenhuma mensagem de erro foi exibida  
+- O saldo foi atualizado mesmo sendo insuficiente

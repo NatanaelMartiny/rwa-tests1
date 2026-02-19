@@ -14,14 +14,14 @@ Validar que o sistema não permite o envio do formulário de cadastro quando os 
 
 ---
 
-## 🔎 Pré-condições
+## Pré-condições
 
 - Aplicação em execução
 - Usuário acessando a página `/signup`
 
 ---
 
-## 📋 Dados de Teste
+## Dados de Teste
 
 | Campo | Valor |
 |-------|-------|
@@ -35,7 +35,7 @@ Validar que o sistema não permite o envio do formulário de cadastro quando os 
 
 ## Passos para Execução
 
-| # | Ação | Resultado Esperado |
+| # | Ação | Resultado Esperado|
 |---|------|-------------------|
 | 1 | Acessar a página de cadastro | Página exibida corretamente |
 | 2 | Clicar no botão "Sign Up" sem preencher os campos | Sistema exibe mensagem de erro para os campos obrigatórios |
